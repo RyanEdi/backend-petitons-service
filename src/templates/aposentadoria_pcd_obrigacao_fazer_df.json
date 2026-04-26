@@ -1,0 +1,106 @@
+{
+  "petitionTemplate": {
+    "id": "aposentadoria_pcd_obrigacao_fazer_df",
+    "version": 1,
+    "title": "Ação de Obrigação de Fazer c/c Concessão de Aposentadoria PCD, Danos Morais e Cobrança de Retroativos",
+    "placeholdersDescription": {
+      "[PEÇA]": "Marcador genérico para campos editáveis no PDF",
+      "[NOME_COMPLETO_DO_AUTOR]": "Nome completo do autor",
+      "[ESTADO_CIVIL]": "Estado civil do autor",
+      "[PROFISSÃO]": "Profissão do autor",
+      "[CPF_COM_MASCARA]": "CPF do autor formatado (999.999.999-99)",
+      "[RG]": "Número do RG do autor",
+      "[ENDERECO_COMPLETO]": "Endereço completo do autor",
+      "[CEP_COM_MASCARA]": "CEP do autor formatado (99999-999)",
+      "[EMAIL_AUTOR]": "E-mail do autor",
+      "[ENDERECO_ESCRITORIO]": "Endereço profissional do advogado",
+      "[ENDERECO_DF_IPREV]": "Endereço dos réus (DF/IPREV)",
+      "[VALOR_DANO_MORAL]": "Valor pleiteado a título de dano moral",
+      "[VALOR_DA_CAUSA]": "Valor atribuído à causa",
+      "[NOME_DO_ADVOGADO]": "Nome do advogado",
+      "[UF]": "UF da OAB",
+      "[NUMERO_OAB]": "Número de inscrição na OAB",
+      "[CIDADE_UF]": "Cidade/UF da assinatura"
+    },
+    "sections": [
+      {
+        "id": "cabecalho",
+        "label": "Cabeçalho",
+        "order": 1,
+        "text": "EXCELENTÍSSIMO SENHOR DOUTOR JUIZ DE DIREITO DA [PEÇA] VARA DA FAZENDA PÚBLICA DO DISTRITO FEDERAL"
+      },
+      {
+        "id": "qualificacao_autor",
+        "label": "Qualificação do Autor",
+        "order": 2,
+        "text": "[PEÇA] [NOME_COMPLETO_DO_AUTOR], brasileiro, [PEÇA] [ESTADO_CIVIL], [PEÇA] [PROFISSÃO], portador do CPF nº [PEÇA] [CPF_COM_MASCARA], RG nº [PEÇA] [RG], residente e domiciliado à [PEÇA] [ENDERECO_COMPLETO], CEP [PEÇA] [CEP_COM_MASCARA], endereço eletrônico [PEÇA] [EMAIL_AUTOR], vem, respeitosamente, por seu advogado infra-assinado, instrumento de mandato anexo, com endereço profissional em [PEÇA] [ENDERECO_ESCRITORIO] (onde receberá intimações), propor a presente"
+      },
+      {
+        "id": "nome_acao",
+        "label": "Nome da Ação",
+        "order": 3,
+        "text": "AÇÃO DE OBRIGAÇÃO DE FAZER\nC/C CONCESSÃO DE APOSENTADORIA PCD, DANOS MORAIS E COBRANÇA DE RETROATIVOS"
+      },
+      {
+        "id": "qualificacao_reus",
+        "label": "Qualificação dos Réus",
+        "order": 4,
+        "text": "em face do DISTRITO FEDERAL, pessoa jurídica de direito público interno, e do INSTITUTO DE PREVIDÊNCIA DOS SERVIDORES DO DISTRITO FEDERAL – IPREV/DF, autarquia previdenciária, ambos com endereço na [PEÇA] [ENDERECO_DF_IPREV], pelos fatos e fundamentos a seguir expostos."
+      },
+      {
+        "id": "dos_fatos",
+        "label": "1. Dos Fatos",
+        "order": 5,
+        "text": "1. DOS FATOS\n\n[PEÇA] O Autor é servidor público do Distrito Federal desde 12/04/2002, exercendo atividades em ambiente insalubre, sempre na condição de Pessoa com Deficiência (PCD) em grau Moderado, conforme laudos médicos e avaliações funcionais anexos.\n\nAo requerer administrativamente a conversão do tempo especial insalubre em tempo de contribuição como pessoa com deficiência – nos termos da Lei Complementar nº 142/2013 e do Decreto nº 8.145/2013, limitando-se corretamente a aplicação do fator de conversão até 13/11/2019 –, o IPREV/DF indeferiu o pedido, com fundamento no art. 8º da Portaria nº 12/2016, norma infralegal que, de forma indevida, suprimiu o direito do Autor à conversão e à consequente concessão de aposentadoria especial PCD.\n\nO indeferimento administrativo, lastreado em portaria que contraria frontalmente o Decreto nº 8.145/2013, mantém o Autor em atividade além do tempo legalmente exigido, privando-o de benefício previdenciário de natureza alimentar e violando os princípios da legalidade, da hierarquia das normas, da segurança jurídica e da proteção da pessoa com deficiência."
+      },
+      {
+        "id": "nulidade_portaria",
+        "label": "2. Nulidade da Portaria",
+        "order": 6,
+        "text": "2. DA NULIDADE ABSOLUTA DA PORTARIA Nº 12/2016 POR VIOLAÇÃO AO PRINCÍPIO DA HIERARQUIA DAS NORMAS\n\n[PEÇA] Conforme se depreende da análise do caso em tela, a Administração Pública editou a Portaria nº 12/2016 do IPREV/DF, ato administrativo secundário, a qual estabelece diretrizes que contrariam frontalmente as disposições contidas no Decreto nº 8.145/2013 (que regulamenta a Lei Complementar nº 142/2013).\n\nNo ordenamento jurídico brasileiro, vigora o princípio da hierarquia das normas, segundo o qual atos administrativos internos, como portarias e instruções normativas, não podem inovar na ordem jurídica, tampouco restringir direitos ou se sobrepor a decretos regulamentares e leis.\n\nO Decreto nº 8.145/2013, emanado pelo Chefe do Poder Executivo, possui força normativa superior em relação às portarias do IPREV/DF, competindo-lhe regulamentar a Lei Complementar nº 142/2013 e estabelecer, entre outros pontos, a possibilidade de conversão do tempo especial em tempo de contribuição da pessoa com deficiência, nos termos do art. 70-F, § 1º.\n\nA Portaria nº 12/2016, entretanto, ao deixar de observar a regra de conversão prevista no art. 70-F, § 1º, omitiu indevidamente a aplicação do fator de conversão específico para a pessoa com deficiência que trabalhou em condições especiais até 13/11/2019, suprimindo direito previsto em norma hierarquicamente superior.\n\nDestarte, ao extrapolar os limites de sua competência e contrariar norma de grau superior, a Portaria nº 12/2016 padece de vício insanável de legalidade, configurando flagrante ilegalidade por usurpação de competência normativa. Impõe-se, assim, o reconhecimento de sua nulidade absoluta e de pleno direito, com a consequente inaplicabilidade de seus dispositivos ao caso concreto, a fim de restabelecer a estrita observância ao princípio da legalidade e à hierarquia das normas."
+      },
+      {
+        "id": "direito_adquirido_tempus_regit",
+        "label": "3. Direito Adquirido e Tempus Regit Actum",
+        "order": 7,
+        "text": "3. DO DIREITO ADQUIRIDO, DO PRINCÍPIO TEMPUS REGIT ACTUM E DA JURISPRUDÊNCIA\n\n[PEÇA] O tempo de serviço é regido pela lei vigente à época de sua prestação, em observância ao princípio tempus regit actum. Normas posteriores não podem retroagir para suprimir direitos já incorporados ao patrimônio jurídico do segurado, sob pena de violação ao direito adquirido (art. 5º, XXXVI, da Constituição Federal).\n\nNo caso da aposentadoria da pessoa com deficiência, a LC 142/2013 e o Decreto nº 8.145/2013 estabeleceram a possibilidade de: (i) reconhecimento da condição de PCD em graus grave, moderado ou leve; e (ii) conversão do tempo de contribuição prestado em condições especiais (insalubres) em tempo de contribuição como PCD, nos moldes do art. 70-F, § 1º, do Decreto nº 8.145/2013, até 13/11/2019.\n\nO caput do art. 70-F veda a acumulação de benefícios e contagens que impliquem dupla vantagem, mas o § 1º expressamente institui uma tabela específica de conversão para evitar prejuízo ao segurado que é simultaneamente PCD e trabalhou em condições especiais. Para o homem com deficiência moderada, aplica-se o fator 1,16 até 13/11/2019.\n\nAssim, o Autor, que prestou serviço de forma contínua nesse regime até 13/11/2019, adquiriu o direito de ter esse período convertido com base no fator previsto em decreto, direito este que não pode ser afastado por portaria infralegal editada posteriormente.\n\n[PEÇA] (Inserir aqui ementas de julgados sobre direito adquirido, tempus regit actum e impossibilidade de portaria restringir direito previdenciário)."
+      },
+      {
+        "id": "tratado_pcd",
+        "label": "4. Violação ao Tratado Internacional da PCD",
+        "order": 8,
+        "text": "4. DA VIOLAÇÃO AO TRATADO INTERNACIONAL DE DIREITOS DA PESSOA COM DEFICIÊNCIA (DECRETO 6.949/2009)\n\n[PEÇA] A Convenção Internacional sobre os Direitos das Pessoas com Deficiência, adotada pela ONU em 2006 e incorporada ao ordenamento brasileiro com status de Emenda Constitucional pelo Decreto nº 6.949/2009, estabelece o dever do Estado de promover, proteger e assegurar o pleno exercício de todos os direitos humanos e liberdades fundamentais pelas pessoas com deficiência, vedando qualquer forma de discriminação com base na deficiência.\n\nAo negar ao Autor a aplicação do regime jurídico mais protetivo previsto na LC 142/2013 e no Decreto 8.145/2013, e ao utilizar portaria infralegal para suprimir o direito à conversão do tempo especial como PCD, o IPREV/DF cria barreira indireta ao exercício de direito previdenciário assegurado à pessoa com deficiência, promovendo tratamento discriminatório e violando a vedação ao retrocesso social em matéria de direitos fundamentais.\n\nPortanto, a manutenção da Portaria nº 12/2016, em detrimento do Decreto nº 8.145/2013 e da LC 142/2013, representa ofensa direta ao Tratado Internacional de Direitos da PCD, devendo ser afastada pelo Poder Judiciário."
+      },
+      {
+        "id": "calculos_integralidade_retroativos",
+        "label": "5. Cálculos, Integralidade e Retroativos",
+        "order": 9,
+        "text": "5. DOS CÁLCULOS, DOS REQUISITOS PARA APOSENTADORIA PCD, DA INTEGRALIDADE E DOS RETROATIVOS\n\n[PEÇA] Nos termos da LC 142/2013 e do Decreto nº 8.145/2013, para aposentadoria por tempo de contribuição da pessoa com deficiência em grau Moderado (sexo masculino), exige-se o mínimo de 29 anos de tempo de contribuição, equivalentes a 10.585 dias.\n\nNo caso do Autor, o Relatório Previdenciário aponta:\n\nTempo Comum PCD Averbado: 1.491 dias.\nPeríodo Insalubre 1 (12/04/2002 a 13/11/2019): 6.425 dias em condições especiais; fator 1,16; tempo convertido: 7.453 dias.\nPeríodo Insalubre 2 (14/11/2019 a 03/03/2026): 2.302 dias; fator 1,0; tempo convertido: 2.302 dias.\n\nTotal de Tempo de Contribuição: 7.453 + 2.302 + 1.491 = 11.246 dias (aprox. 30 anos e 9 meses).\nRequisito Exigido (Moderada – Homem): 29 anos (10.585 dias).\nExcedente: 661 dias ≈ 22 meses (661 ÷ 30).\n\nCálculo Retroativo: 22 meses × R$ 1.674,64 = R$ 36.842,08.\n\nO Autor ingressou no serviço público em 12/04/2002, antes de 31/12/2003, fazendo jus às regras de integralidade e paridade.\n\nA renda mensal será calculada aplicando-se sobre o salário de benefício (art. 29, Lei 8.213/91) os seguintes percentuais (Art. 8º, Decreto 8.145/2013): I – Integralidade (100%) no caso de aposentadoria por tempo; ou II – 70% mais 1% por grupo de 12 contribuições até o máximo de 30%, no caso de aposentadoria por idade.\n\nDiante disso, o Autor faz jus à aposentadoria da pessoa com deficiência em grau Moderado, com integralidade (100%), paridade e pagamento dos retroativos de R$ 36.842,08, acrescidos de correção monetária e juros legais."
+      },
+      {
+        "id": "dano_moral",
+        "label": "6. Do Dano Moral",
+        "order": 10,
+        "text": "6. DO DANO MORAL\n\n[PEÇA] A negativa injustificada de benefício previdenciário de natureza alimentar, fundada em portaria sabidamente inferior e manifestamente contrária ao Decreto 8.145/2013 e à LC 142/2013, caracteriza conduta dolosa do ente federado e de seu órgão previdenciário.\n\nO IPREV/DF, ao ignorar o art. 70-F, § 1º, do Decreto 8.145/2013, utilizar ato infralegal para restringir direito consolidado do Autor e mantê-lo em atividade além do tempo legalmente exigido, submete-o a insegurança, angústia e desgaste psicológico, privando-o de usufruir de sua aposentadoria legítima e de planejar sua vida com base em renda previdenciária devida.\n\nTal situação configura dano moral in re ipsa, dispensando a prova do prejuízo concreto.\n\nRequer, assim, a condenação dos Réus ao pagamento de indenização por danos morais no valor de R$ [PEÇA] [VALOR_DANO_MORAL], ou outro montante que Vossa Excelência entender adequado."
+      },
+      {
+        "id": "pedidos",
+        "label": "7. Dos Pedidos",
+        "order": 11,
+        "text": "7. DOS PEDIDOS\n\n[PEÇA] Diante do exposto, requer:\n\na) Concessão de tutela de urgência, para determinar que o IPREV/DF proceda imediatamente à conversão do tempo de serviço insalubre do Autor em tempo de contribuição como PCD Moderada, aplicando o fator 1,16 até 13/11/2019, bem como promova, em caráter provisório, a implantação da aposentadoria da pessoa com deficiência em grau Moderado, com integralidade (100%) e paridade, sob pena de multa diária.\n\nb) No mérito, seja julgada totalmente procedente a presente ação para:\n\n1. Declarar a nulidade do art. 8º da Portaria nº 12/2016 do IPREV/DF;\n2. Reconhecer o direito adquirido do Autor à conversão do tempo especial insalubre em tempo de contribuição da pessoa com deficiência, aplicando-se o fator 1,16 até 13/11/2019, computando-se o total de 11.246 dias;\n3. Determinar a concessão da aposentadoria por tempo de contribuição da pessoa com deficiência em grau Moderado, com integralidade (100%) e paridade;\n4. Condenar os Réus ao pagamento dos valores retroativos de R$ 36.842,08, com correção monetária e juros de mora;\n5. Condenar os Réus ao pagamento de indenização por danos morais no valor de R$ [PEÇA] [VALOR_DANO_MORAL];\n6. Condenar os Réus ao pagamento de honorários sucumbenciais em favor do patrono do Autor.\n\nc) Requer, ainda, a citação dos Réus, a produção de todas as provas em direito admitidas e, se for o caso, a concessão dos benefícios da Justiça Gratuita.\n"
+      },
+      {
+        "id": "valor_da_causa",
+        "label": "8. Valor da Causa",
+        "order": 12,
+        "text": "8. DO VALOR DA CAUSA\n\n[PEÇA] Dá-se à causa o valor de R$ [PEÇA] [VALOR_DA_CAUSA]."
+      },
+      {
+        "id": "fecho",
+        "label": "Fecho",
+        "order": 13,
+        "text": "[PEÇA] [CIDADE_UF], 03 de março de 2026.\n\n[PEÇA] [NOME_DO_ADVOGADO]\nOAB/[PEÇA] [UF] nº [PEÇA] [NUMERO_OAB]"
+      }
+    ]
+  }
+}
