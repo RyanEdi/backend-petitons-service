@@ -2,6 +2,9 @@ import dotenv from 'dotenv';
 import path from 'path';
 import petitionsPreviewRouter from '../routes/petitionsPreview';
 import petitionsPdfLibRouter from '../routes/petitionsPdfLib';
+import casosRouter from '../routes/casos';
+import peticoesRouter from '../routes/peticoes';
+import eventosRouter from '../routes/eventos';
 import { createBaseApp } from '../shared/createBaseApp';
 import { resolvePort } from '../config/http';
 
@@ -11,6 +14,9 @@ const app = createBaseApp();
 
 app.use('/api/petitions', petitionsPreviewRouter);
 app.use('/api/petitions', petitionsPdfLibRouter);
+app.use('/api/casos', casosRouter);
+app.use('/api/peticoes', peticoesRouter);
+app.use('/api/eventos', eventosRouter);
 
 app.get('/health', (_req, res) => {
   res.json({ service: 'petitions-service', status: 'ok' });
