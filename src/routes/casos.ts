@@ -2,6 +2,7 @@ import { Router, Request, Response } from 'express';
 import { v4 as uuid } from 'uuid';
 import pool from '../config/database';
 import { sanitizeText } from '../utils/sanitizers';
+import { decryptIfPresent } from '../utils/crypto'; 
 
 const router = Router();
 
@@ -11,7 +12,7 @@ const getUserId = (req: Request): number | null => {
   return Number.isInteger(id) && id > 0 ? id : null;
 };
 
-// GET /api/casos
+// GET /api/casos — lista casos descriptografando nomes de clientes
 router.get('/', async (req: Request, res: Response) => {
   const advogadoId = getUserId(req);
   if (!advogadoId) return res.status(401).json({ error: 'Não autorizado.' });
@@ -19,52 +20,64 @@ router.get('/', async (req: Request, res: Response) => {
   try {
     const result = await pool.query(
       `SELECT
-         c.id,
-         c.cliente_id AS "clienteId",
-         cl.nome_completo AS "clienteNome",
-         c.tipo,
-         c.status,
-         c.data_abertura AS "dataAbertura",
-         c.prazo,
-         c.observacoes,
-         c.created_at AS "createdAt"
-       FROM casos_adv c
-       LEFT JOIN clientes_adv cl ON cl.id = c.cliente_id
-       WHERE c.advogado_id = $1
-       ORDER BY c.created_at DESC`,
+          c.id,
+          c.cliente_id AS "clienteId",
+          cl.nome_completo AS "clienteNome",
+          c.tipo,
+          c.status,
+          c.data_abertura AS "dataAbertura",
+          c.prazo,
+          c.observacoes,
+          c.created_at AS "createdAt"
+        FROM casos_adv c
+        LEFT JOIN clientes_adv cl ON cl.id = c.cliente_id
+        WHERE c.advogado_id = $1
+        ORDER BY c.created_at DESC`,
       [advogadoId]
     );
-    return res.json(result.rows);
-  } catch (err) {
-    console.error('[casos] GET /', err);
+
+    // Descriptografa o nome do cliente antes de enviar ao frontend
+    const casos = result.rows.map(caso => ({
+      ...caso,
+      clienteNome: decryptIfPresent(caso.clienteNome)
+    }));
+
+    return res.json(casos);
+  } catch (err: any) {
+    console.error('[casos] GET /', err.message);
     return res.status(500).json({ error: 'Erro ao listar casos.' });
   }
 });
 
-// GET /api/casos/:id
+// GET /api/casos/:id — detalhe descriptografado
 router.get('/:id', async (req: Request, res: Response) => {
   const advogadoId = getUserId(req);
   if (!advogadoId) return res.status(401).json({ error: 'Não autorizado.' });
 
   try {
     const result = await pool.query(
-      `SELECT c.id, c.cliente_id AS "clienteId", cl.nome_completo AS "clienteNome",
-              c.tipo, c.status, c.data_abertura AS "dataAbertura", c.prazo,
-              c.observacoes, c.created_at AS "createdAt"
+      `SELECT c.*, cl.nome_completo AS "clienteNome"
        FROM casos_adv c
        LEFT JOIN clientes_adv cl ON cl.id = c.cliente_id
        WHERE c.id = $1 AND c.advogado_id = $2`,
       [req.params.id, advogadoId]
     );
+
     if (!result.rows.length) return res.status(404).json({ error: 'Caso não encontrado.' });
-    return res.json(result.rows[0]);
-  } catch (err) {
-    console.error('[casos] GET /:id', err);
+
+    const caso = {
+      ...result.rows[0],
+      clienteNome: decryptIfPresent(result.rows[0].clienteNome)
+    };
+
+    return res.json(caso);
+  } catch (err: any) {
+    console.error('[casos] GET /:id', err.message);
     return res.status(500).json({ error: 'Erro ao buscar caso.' });
   }
 });
 
-// POST /api/casos
+// POST /api/casos — criar caso
 router.post('/', async (req: Request, res: Response) => {
   const advogadoId = getUserId(req);
   if (!advogadoId) return res.status(401).json({ error: 'Não autorizado.' });
@@ -93,13 +106,13 @@ router.post('/', async (req: Request, res: Response) => {
       ]
     );
     return res.status(201).json(result.rows[0]);
-  } catch (err) {
-    console.error('[casos] POST /', err);
+  } catch (err: any) {
+    console.error('[casos] POST /', err.message);
     return res.status(500).json({ error: 'Erro ao criar caso.' });
   }
 });
 
-// PATCH /api/casos/:id
+// PATCH /api/casos/:id — atualizar caso
 router.patch('/:id', async (req: Request, res: Response) => {
   const advogadoId = getUserId(req);
   if (!advogadoId) return res.status(401).json({ error: 'Não autorizado.' });
@@ -109,13 +122,13 @@ router.patch('/:id', async (req: Request, res: Response) => {
   try {
     const result = await pool.query(
       `UPDATE casos_adv SET
-         cliente_id = COALESCE($1, cliente_id),
-         tipo = COALESCE($2, tipo),
-         data_abertura = COALESCE($3, data_abertura),
-         prazo = $4,
-         status = COALESCE($5, status),
-         observacoes = $6,
-         updated_at = NOW()
+          cliente_id = $1,
+          tipo = $2,
+          data_abertura = $3,
+          prazo = $4,
+          status = $5,
+          observacoes = $6,
+          updated_at = NOW()
        WHERE id = $7 AND advogado_id = $8
        RETURNING *`,
       [
@@ -131,8 +144,8 @@ router.patch('/:id', async (req: Request, res: Response) => {
     );
     if (!result.rows.length) return res.status(404).json({ error: 'Caso não encontrado.' });
     return res.json(result.rows[0]);
-  } catch (err) {
-    console.error('[casos] PATCH /:id', err);
+  } catch (err: any) {
+    console.error('[casos] PATCH /:id', err.message);
     return res.status(500).json({ error: 'Erro ao atualizar caso.' });
   }
 });
@@ -149,8 +162,8 @@ router.delete('/:id', async (req: Request, res: Response) => {
     );
     if (!result.rows.length) return res.status(404).json({ error: 'Caso não encontrado.' });
     return res.json({ success: true });
-  } catch (err) {
-    console.error('[casos] DELETE /:id', err);
+  } catch (err: any) {
+    console.error('[casos] DELETE /:id', err.message);
     return res.status(500).json({ error: 'Erro ao excluir caso.' });
   }
 });
